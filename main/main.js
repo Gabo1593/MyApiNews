@@ -39,13 +39,13 @@ fetch(url).then((responde)=> responde.json()).then(dato =>{
     console.log(dato);
     let news = (dato.articles);
     news.map(function(numero){
-        let div = document.createElement("news");
-        div.innerHTML = ` <br>
-                             <h1>${numero.title}</h1>
-                            <img style="max-width:800px" src=${numero.urlToImage}><br>
+        let divNews = document.createElement("div");
+        divNews.innerHTML = ` <br>
+        <h1><a href="${numero.url}">${numero.title}</a></h1>                
+                            <img src=${numero.urlToImage}><br>
                             <h2>${numero.description}</h2>
-                            <h3>${numero.url}</h3>
+                            
         `;
-        showNews.appendChild(div);
+        showNews.appendChild(divNews);
     })
 })
